@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Grace Family — Red Fermentation Tank Spec</title>
+<style>
+  @page { size: Letter; margin: 0.5in; }
+  :root { --accent: #7b2e3c; --accent-soft: #f3e9eb; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    color: #1a1a1a;
+    font-size: 9.6px;
+    line-height: 1.36;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .sheet {
+    width: 7.5in;
+    min-height: 10in;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ---- Title block ---- */
+  .titleblock {
+    border: 1.5px solid #1a1a1a;
+    border-top: 4px solid var(--accent);
+    display: grid;
+    grid-template-columns: 1fr 150px;
+  }
+  .tb-main { padding: 9px 13px; }
+  .tb-client { font-size: 10px; letter-spacing: .14em; color: var(--accent); font-weight: 700; }
+  .tb-title { font-size: 19.5px; font-weight: 700; letter-spacing: .01em; margin-top: 2px; color: #1a1a1a; }
+  .tb-sub { font-size: 10px; color: #444; margin-top: 3px; }
+  .tb-meta {
+    border-left: 1.5px solid #1a1a1a;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    font-size: 8.4px;
+  }
+  .tb-meta div { border-bottom: 1px solid #bbb; padding: 4px 8px; }
+  .tb-meta div:last-child { border-bottom: none; }
+  .tb-meta b { display:block; font-size: 7.4px; letter-spacing:.08em; color:var(--accent); text-transform: uppercase; }
+
+  /* ---- Body grid ---- */
+  .cols { display: grid; grid-template-columns: 3.6in 1fr; gap: 18px; margin-top: 26px; align-items: start; }
+  .art-col { display: flex; flex-direction: column; }
+  .art-col .schedwrap { margin-top: 34px; }
+  .spec-col .specgrid { margin-top: 22px; }
+
+  .drawing { border: 1px solid #1a1a1a; padding: 11px; }
+  .drawing svg { width: 100%; height: auto; display: block; }
+  .drawing img { width: 100%; height: auto; display: block; }
+  .dwg-cap { text-align: center; font-size: 8.6px; letter-spacing:.12em; font-weight:600; color:#333; padding: 4px 0 1px; border-top: 1px solid #ccc; margin-top: 3px; }
+
+  h2.sec {
+    font-size: 9.2px; letter-spacing: .12em; text-transform: uppercase;
+    background: var(--accent); color: #fff; padding: 3px 7px; margin: 0 0 5px;
+  }
+  .specgrid { display: block; }
+  ul.spec { list-style: none; margin: 0; padding: 0; }
+  ul.spec li { padding: 3px 0 3px 10px; position: relative; border-bottom: 1px solid #eee; }
+  ul.spec li:last-child { border-bottom: none; }
+  ul.spec li::before { content: ""; position:absolute; left:0; top:8px; width:3px; height:3px; background:var(--accent); }
+  ul.spec li b { font-weight: 600; }
+
+  /* ---- Schedule table ---- */
+  .schedwrap { margin-top: 9px; }
+  table.sched { width: 100%; border-collapse: collapse; font-size: 9.6px; }
+  table.sched th, table.sched td { border: 1px solid #999; padding: 8px 7px; text-align: center; }
+  table.sched thead th { background: var(--accent); color: #fff; font-size: 9.4px; letter-spacing: .04em; }
+  table.sched td.rowlabel, table.sched th.rowlabel { text-align: left; font-weight: 600; background: #f1f1f1; white-space: nowrap; }
+  table.sched thead th.rowlabel { background: var(--accent-soft); color: #1a1a1a; font-weight: 700; }
+  table.sched tbody tr:nth-child(even) td { background: #f8f8f8; }
+  table.sched tbody tr:nth-child(even) td.rowlabel { background: #ececec; }
+  table.sched .unit { color:#777; font-weight: 400; }
+
+  .footer { display:flex; justify-content: space-between; font-size: 8px; color:#666; margin-top: auto; border-top: 1px solid #ccc; padding-top: 5px; }
+  .note { font-size: 10px; color:#333; margin-top: 9px; }
+  .note b { color: var(--accent); }
+  ul.notelist { list-style: none; margin: 2px 0 0; padding: 0; }
+  ul.notelist li { padding: 1px 0 1px 8px; position: relative; }
+  ul.notelist li::before { content: ""; position:absolute; left:0; top:5px; width:3px; height:3px; background:var(--accent); }
+
+  /* SVG drawing styles */
+  .ln { fill:none; stroke:#1a1a1a; stroke-width:1.1; }
+  .ln2 { fill:none; stroke:#1a1a1a; stroke-width:0.7; }
+  .hid { fill:none; stroke:#888; stroke-width:0.6; stroke-dasharray:3 2; }
+  .dim { fill:none; stroke:#c0392b; stroke-width:0.5; }
+  .ctr { fill:none; stroke:#888; stroke-width:0.5; stroke-dasharray:6 2 1 2; }
+  .lead { fill:none; stroke:#555; stroke-width:0.45; }
+  .fillss { fill:#eef2f5; stroke:#1a1a1a; stroke-width:1.1; }
+  .fillj { fill:#dfe7ee; stroke:#1a1a1a; stroke-width:0.8; }
+  text.lbl { font: 5.4px "Segoe UI", Arial, sans-serif; fill:#222; }
+  text.dlbl { font: 5.4px "Segoe UI", Arial, sans-serif; fill:#c0392b; }
+  text.vw { font: 6.2px "Segoe UI", Arial, sans-serif; fill:#333; letter-spacing:.1em; }
+</style>
+<script src="tank-data.js"></script>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- TITLE BLOCK -->
+  <div class="titleblock">
+    <div class="tb-main">
+      <div class="tb-client">GRACE FAMILY VINEYARD &nbsp;·&nbsp; HEATH CANYON WINERY</div>
+      <div class="tb-title">Red Fermentation Tank — Cut Sheet &amp; Specifications</div>
+      <div class="tb-sub">Jacketed stainless fermentation / storage tank · for quotation</div>
+    </div>
+    <div class="tb-meta">
+      <div><b>Tank Type</b>Red Fermenter</div>
+      <div><b>Sizes</b>3 / 4 / 5 Ton</div>
+      <div><b>Total Qty</b>18 Tanks</div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="cols">
+
+    <!-- LEFT: DRAWING + SIZE SCHEDULE -->
+    <div class="art-col">
+      <div class="drawing">
+        <img src="tank-1.png" alt="Front elevation — fermentation / storage tank">
+        <div class="dwg-cap">FRONT ELEVATION — FERMENTATION / STORAGE TANK</div>
+      </div>
+
+      <div class="schedwrap">
+        <h2 class="sec">Size Schedule</h2>
+        <table class="sched" id="sched"></table>
+        <div class="note" id="specnotes"></div>
+      </div>
+    </div>
+
+    <!-- RIGHT: SPECIFICATION LIST -->
+    <div class="spec-col">
+      <h2 class="sec">General Tank Specifications — Fermentation / Storage</h2>
+      <div class="specgrid" id="specgrid"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>McClintock Services — Tank Specification</span>
+    <span>Grace Family Vineyard / Heath Canyon Winery · Red Fermentation Tank</span>
+    <span>Rev — / 2026</span>
+  </div>
+
+</div>
+
+<script>
+  // Renders the editable content from tank-data.js into the sheet.
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function lines(block){ return block.split('\n').map(function(l){return l.trim();}).filter(function(l){return l && l.charAt(0)!=='#';}); }
+
+  // ---- Spec list -> single column (the --- column-break line is ignored) ----
+  (function(){
+    var items = lines(typeof SPEC_LIST !== 'undefined' ? SPEC_LIST : '');
+    var lis = items.filter(function(l){return l !== '---';}).map(function(line){
+      var i = line.indexOf('|');
+      if (i === -1) return '<li>' + esc(line) + '</li>';
+      return '<li><b>' + esc(line.slice(0,i).trim()) + ':</b> ' + esc(line.slice(i+1).trim()) + '</li>';
+    }).join('');
+    document.getElementById('specgrid').innerHTML = '<ul class="spec">' + lis + '</ul>';
+  })();
+
+  // ---- Size schedule ----
+  (function(){
+    var hdr = (typeof SCHEDULE_HEADERS !== 'undefined' ? SCHEDULE_HEADERS : '').split('|').map(function(s){return esc(s.trim());});
+    var rows = lines(typeof SIZE_SCHEDULE !== 'undefined' ? SIZE_SCHEDULE : '').map(function(l){return l.split('|').map(function(s){return s.trim();});});
+    var thead = '<tr><th class="rowlabel">' + (hdr[0]||'') + '</th>' +
+                hdr.slice(1).map(function(h){return '<th>'+h+'</th>';}).join('') + '</tr>';
+    var tbody = rows.map(function(c){
+      return '<tr><td class="rowlabel">' + esc(c[0]||'') + '</td>' +
+             c.slice(1).map(function(v){return '<td>'+esc(v)+'</td>';}).join('') + '</tr>';
+    }).join('');
+    document.getElementById('sched').innerHTML = '<thead>'+thead+'</thead><tbody>'+tbody+'</tbody>';
+    var noteItems = lines(typeof SPEC_NOTES !== 'undefined' ? SPEC_NOTES : '');
+    document.getElementById('specnotes').innerHTML = '<b>Pricing Notes:</b><ul class="notelist">' +
+      noteItems.map(function(n){ return '<li>' + esc(n) + '</li>'; }).join('') + '</ul>';
+  })();
+</script>
+</body>
+</html>
