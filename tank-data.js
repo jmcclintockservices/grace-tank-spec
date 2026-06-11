@@ -76,7 +76,7 @@ Max Overall Height (in) | 126 | 126 | 130
 
 
 /* ---------- PRICING NOTES (the lines under the table) ---------- */
-const SPEC_NOTES = `Provide outer wrap tint / color / finsih options, and estimated price increase
+const SPEC_NOTES = `Provide outer wrap tint / color / finish options, and estimated price increase
 Note price change for laser welded jackets
 Note price increase for optional racking door
 Please note ideal lead time to generate detailed drawings and best-effort fabrication`;
