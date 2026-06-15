@@ -29,14 +29,14 @@ const SPEC_LIST = `
 
 Interior | 304 SS, #4 polish
 Exterior | 304 SS, #4 polish (note tint / color / finish options)
-Interior welds | TIG, buff polish, weld visible
+Interior welds | TIG, ground smooth and polished
 Exterior (Shell) welds | TIG or MIG, buff polish, weld visible
-Outer Wrap welds | TIG, ground smooth — horizontal & vertical seams
+Outer Wrap welds | TIG, ground smooth and polish — horizontal & vertical seams
 Shell Sidewall | single section or small course at top, 12 ga min
 Top | knuckled cone, 5–10° to target overall height, 12 ga min
 Bottom | knuckled, flat, sloping 1/2" per foot, 10 ga min
 Outer wrap | 12 ga min, all fittings covered w/ SS escutcheons, fully TIG welded
-Glycol jacket | single 4'-wide (min) zone, laser welded (preferred), 65 PSI (min) rating, 1" FNPT half-couple in/out, flow tested
+Glycol jacket | single 4'-wide (min) zone, laser welded (preferred) or ASME stamped, 65 PSI (min) rating, 1" FNPT half-couple in/out, flow tested
 Insulation | 2" thick, hydrophobic, sides & bottom
 
 ---
