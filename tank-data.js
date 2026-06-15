@@ -53,8 +53,8 @@ Drain screen | high flow, sanitary, covers drain & sample port
 Temp well | 18" long, 1/2" FNPT w/ brace, fully welded
 Legs | 6" sch 40 SS, welded to body or on stand; 10" Ø × 1/4" footpads, 2" height adjust
 Leg bracing | per structural — assume 2" sch 40 SS single diagonal
-Pump plate | assume 12" × 10" × 1/4" w/ gussets
-Pump Control | assume 6" × 8" × 12 ga bracket
+Pump plate | 3, 4 & 5 Ton only, assume 12" × 10" × 1/4" w/ gussets
+Pump Control | 3, 4 & 5 Ton only, assume 6" × 8" × 12 ga bracket
 Pump-over | piping & install separate / by others
 
 `;
@@ -81,5 +81,4 @@ const SPEC_NOTES = `Provide outer wrap tint / color / finish options, and estima
 Note price change for laser welded jackets
 Note price increase for optional racking door
 1, 1.5 & 2.5 Ton tank top manway may be less than 30" diameter
-1, 1.5 & 2.5 Ton tank will not have pump plate or pump control bracket
 Please note ideal lead time to generate detailed drawings and best-effort fabrication`;
