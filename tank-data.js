@@ -54,7 +54,7 @@ Temp well | 18" long, 1/2" FNPT w/ brace, fully welded
 Legs | 6" sch 40 SS, welded to body or on stand; 10" Ø × 1/4" footpads, 2" height adjust
 Leg bracing | per structural — assume 2" sch 40 SS single diagonal
 Pump plate | 3, 4 & 5 Ton only, assume 12" × 10" × 1/4" w/ gussets
-Pump Control | 3, 4 & 5 Ton only, assume 6" × 8" × 12 ga bracket
+Pump control bracket | 3, 4 & 5 Ton only, assume 6" × 8" × 12 ga bracket
 Pump-over | piping & install separate / by others
 
 `;
