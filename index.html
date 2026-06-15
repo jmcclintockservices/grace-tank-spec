@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Grace Family — Red Fermentation Tank Spec</title>
 <style>
   @page { size: Letter; margin: 0.5in; }
@@ -98,6 +99,46 @@
   text.lbl { font: 5.4px "Segoe UI", Arial, sans-serif; fill:#222; }
   text.dlbl { font: 5.4px "Segoe UI", Arial, sans-serif; fill:#c0392b; }
   text.vw { font: 6.2px "Segoe UI", Arial, sans-serif; fill:#333; letter-spacing:.1em; }
+
+  /* ---- Mobile / small-screen layout (screen only; print & PDF stay one Letter page) ---- */
+  @media screen and (max-width: 640px) {
+    body { font-size: 15px; line-height: 1.5; }
+    .sheet { width: 100%; min-height: 0; display: block; padding: 10px; }
+
+    .titleblock { grid-template-columns: 1fr; border-top-width: 5px; }
+    .tb-main { padding: 12px 14px; }
+    .tb-client { font-size: 13px; }
+    .tb-title { font-size: 25px; }
+    .tb-sub { font-size: 13px; }
+    .tb-meta {
+      border-left: none; border-top: 1.5px solid #1a1a1a;
+      grid-template-rows: none; grid-template-columns: repeat(3, 1fr);
+      font-size: 12px;
+    }
+    .tb-meta div { border-bottom: none; border-right: 1px solid #bbb; }
+    .tb-meta div:last-child { border-right: none; }
+    .tb-meta b { font-size: 10px; }
+
+    .cols { display: block; margin-top: 16px; }
+    .drawing { padding: 8px; }
+    .art-col .schedwrap { margin-top: 22px; overflow-x: auto; }
+    .spec-col { margin-top: 22px; }
+    .spec-col .specgrid { margin-top: 10px; }
+
+    h2.sec { font-size: 13px; padding: 5px 9px; }
+    ul.spec li { padding: 8px 0 8px 15px; }
+    ul.spec li::before { top: 13px; width: 4px; height: 4px; }
+
+    table.sched { font-size: 13px; }
+    table.sched th, table.sched td { padding: 9px 6px; }
+    table.sched td.rowlabel, table.sched th.rowlabel { white-space: normal; }
+
+    .note { font-size: 14px; }
+    ul.notelist li { padding: 3px 0 3px 12px; }
+    ul.notelist li::before { top: 9px; width: 4px; height: 4px; }
+
+    .footer { flex-direction: column; gap: 3px; font-size: 11px; margin-top: 18px; text-align: center; }
+  }
 </style>
 <script src="tank-data.js"></script>
 </head>
