@@ -14,7 +14,7 @@
      left and right spec columns. Move it to rebalance.
 
    SIZE SCHEDULE lines:
-     Row name | 3 Ton | 4 Ton | 5 Ton
+     Row name | 1 Ton | 2 Ton | 2.5 Ton | 3 Ton | 4 Ton | 5 Ton
 
    RULES:
      - Lines starting with  #  are ignored (notes to yourself).
@@ -48,6 +48,7 @@ Must inlet | 3" TC
 Racking | 1.5" TC
 Sparge | 2" TC
 Sample | 1" TC
+Temperature | 1.5" TC
 Drain screen | high flow, sanitary, covers drain & sample port
 Temp well | 18" long, 1/2" FNPT w/ brace, fully welded
 Legs | 6" sch 40 SS, welded to body or on stand; 10" Ø × 1/4" footpads, 2" height adjust
@@ -61,16 +62,16 @@ Pump-over | piping & install separate / by others
 
 /* ---------- SIZE SCHEDULE ---------- */
 // First line = column headers. Edit numbers in the rows below.
-const SCHEDULE_HEADERS = `Nominal Size | 3 Ton | 4 Ton | 5 Ton`;
+const SCHEDULE_HEADERS = `Nominal Size | 1 Ton | 2 Ton | 2.5 Ton| 3 Ton | 4 Ton | 5 Ton`;
 
 const SIZE_SCHEDULE = `
 
-Quantity | 4 | 8 | 6
-Inner Diameter (in) | 61 | 66 | 73
-Outer Diameter (in) | 65 | 70 | 77
-Shell Sidewall Height (in) | 72 | 72 | 76
-Ground Clearance (in) | 34 | 34 | 34
-Max Overall Height (in) | 126 | 126 | 130
+Quantity | 4 | 2 | 2 | 4 | 8 | 6
+Inner Diameter (in) | 42 | 54 | 58 | 61 | 66 | 73
+Outer Diameter (in) | 46 | 58 | 62 | 65 | 70 | 77
+Shell Sidewall Height (in) | 48 | 60 | 60 | 72 | 72 | 76
+Ground Clearance (in) | 34 | 34 | 34 | 34 | 34 | 34
+Target Overall Height (in) | 101 | 113 | 114 | 126 | 126 | 130
 
 `;
 
@@ -79,4 +80,6 @@ Max Overall Height (in) | 126 | 126 | 130
 const SPEC_NOTES = `Provide outer wrap tint / color / finish options, and estimated price increase
 Note price change for laser welded jackets
 Note price increase for optional racking door
+1, 1.5 & 2.5 Ton tank top manway may be less than 30" diameter
+1, 1.5 & 2.5 Ton tank will not have pump plate or pump control bracket
 Please note ideal lead time to generate detailed drawings and best-effort fabrication`;
